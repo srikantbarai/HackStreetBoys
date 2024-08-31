@@ -22,18 +22,17 @@
             </div> 
             <span class="icon" onclick="showmenu()">&#9776;</span>
         </nav>
-        <div class="formdata">
         <div class="heading">Allotment Change Form</div>
+        <div class="formdata">
             <form action="/action.php">
                 <label for="100">
                     <p>Name</p>
-                    <input type="text" placeholder="Enter name">
+                    <input type="text" placeholder="Enter Name">
                 </label>
                 <label for="101">
                     <p>Roll no</p>
                     <input type="text" placeholder="Enter Roll no">
                 </label>
-                <br>
                 <label for="102">
                     <p>Contact no</p>
                     <input type="number" placeholder="Enter Contact no">
@@ -42,7 +41,6 @@
                     <p>Email id</p>
                     <input type="email" placeholder="Enter Email id">
                 </label>
-                <br>
                 <label for="104">
                     <p>Select Previous Hostel</p>
                     <select name="Hostel">
@@ -56,10 +54,9 @@
                         <option value="CVR">CV Raman</option>
                     </select>
                 </label>
-                <br>
                 <label for="105">
-                    <p>Hostel Preference 1</p>
-                    <select name="Preference1">
+                    <p>Hostel Preferences in order</p>
+                    <select name="Preference1" class="preferences">
                         <option value="GDB">GD Birla</option>
                         <option value="MV">M Viswashraya</option>
                         <option value="DBA">Dhirubhai Ambani</option>
@@ -69,7 +66,7 @@
                         <option value="KMS">Kiran Majumdar Shaw</option>
                         <option value="CVR">CV Raman</option>
                     </select>
-                    <select name="Preference2">
+                    <select name="Preference2" class="preferences">
                         <option value="GDB">GD Birla</option>
                         <option value="MV">M Viswashraya</option>
                         <option value="DBA">Dhirubhai Ambani</option>
@@ -79,7 +76,7 @@
                         <option value="KMS">Kiran Majumdar Shaw</option>
                         <option value="CVR">CV Raman</option>
                     </select>
-                    <select name="Preference3">
+                    <select name="Preference3" class="preferences">
                         <option value="GDB">GD Birla</option>
                         <option value="MV">M Viswashraya</option>
                         <option value="DBA">Dhirubhai Ambani</option>
@@ -90,11 +87,11 @@
                         <option value="CVR">CV Raman</option>
                     </select>
                 </label>
-                <br>
-                <input type="submit" value="submit">
+                <input type="submit" value="submit" id="final">
                 <br>
             </form> 
         </div>
+        <div id="extra"></div>
     </section>
 </body>   
 </html>

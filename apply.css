@@ -73,7 +73,6 @@ nav img{
 .text-box h1{
     font-size: 62px;
     font-weight: bold;
-
 }
 .text-box p{
     margin: 10px 0 40px;
@@ -103,6 +102,64 @@ nav img{
     display:none;
 }
 .formdata{
-    height: 300px;
-    background-color: white;
+    height: 700px;
+    width: 85%;
+    background-color: skyblue;
+    margin: 2rem 4rem 4rem 4rem;
+    padding: 2rem;
+    border-radius: 20px;
+}
+.heading{
+    background-color: orange;
+    padding: 20px;
+    border-radius: 20px;
+    width: 90%;
+    text-align: center;
+    margin-left: 50px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+label{
+    margin: 10px;
+}
+input{
+    border: 2px solid black;
+    padding: 20px;
+    border-radius: 20px;
+    width: 500px;
+    text-align: center;
+}
+select{
+    border: 2px solid black;
+    padding: 10px;
+    border-radius: 20px;
+    width: 550px;
+    text-align: center;
+}
+label p{
+    margin-left: 5px;
+    margin-bottom: 10px;
+}
+select p{
+    margin-left: 5px;
+    margin-bottom: 10px;
+}
+.preferences{
+    border: 2px solid black;
+    padding: 10px;
+    border-radius: 20px;
+    width: 30%;
+    text-align: center;
+    margin-left: 8px;
+}
+#final{
+    margin-top: 2rem;
+    background-color: orange;
+}
+#extra{
+    height: 1rem;
 }
