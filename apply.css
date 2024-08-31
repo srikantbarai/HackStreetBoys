@@ -102,3 +102,7 @@ nav img{
 .icon{
     display:none;
 }
+.formdata{
+    height: 300px;
+    background-color: white;
+}
