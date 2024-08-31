@@ -5,13 +5,14 @@
 }
 .navbar{
     height: 5rem;
-    background-color: #d9b88f;
-    color: black;
+    background-color: #3b3f46;
+    color: white;
     text-align: center;
     justify-content: center;
     font-size: 4rem;
     padding: 0.7rem;
     margin: 0.2rem;
+    border-radius: 20px;
 }
 .hostel-section{
     height: 550px;
@@ -28,7 +29,7 @@
     margin-top: 1rem;
     border-radius: 30px;
     height: 14rem;
-    width: 54rem;
+    width: 74rem;
     color: yellow;
     border: 2px solid yellow;
     background-color: transparent;
@@ -40,13 +41,20 @@
 }
 .box-content{
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .box-img{
+    margin-right: 2rem;
     height: 10rem;
-    width: 12rem;
+    width: 15%;
     background-size: cover;
     background-repeat: no-repeat;
     margin : 0.5rem 1rem 0.5rem 1rem;
+}
+.box-txt{
+    margin-left: 2rem;
+    width: 65%;
 }
 .box h3,p{
     text-align: center;
