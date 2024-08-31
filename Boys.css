@@ -20,7 +20,7 @@
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    background-image: linear-gradient(rgba(4,9,30,0.6),rgba(4,9,30,0.6)),url(about-banner.jpg);
+    background-image: linear-gradient(rgba(4,9,30,0.6),rgba(4,9,30,0.6)),url(Images/boysgirls.jpg);
     background-size: cover;
 }
 .box{
