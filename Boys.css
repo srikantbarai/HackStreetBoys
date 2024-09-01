@@ -56,6 +56,12 @@
     justify-content: center;
     align-items: center;
 }
+.hidden{
+    opacity: 0;
+}
+.visible{
+    opacity: 1;
+}
 .box-img{
     margin-right: 2rem;
     height: 10rem;

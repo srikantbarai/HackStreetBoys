@@ -31,8 +31,8 @@ body{
 }
 nav{
     display: flex;
-    padding: 2% 6%;
-    justify-content: space-between;
+    padding: 0% 6%;
+    justify-content: center;
     align-items: center;
 }
 nav img{
@@ -45,20 +45,18 @@ nav img{
 .nav-links{
     flex: 1;
     text-align: right;
-    
+    height: 50px;
 }
 .nav-links ul li{
     list-style: none;
     display: inline-block;
     padding: 8px 12px;
     position: relative;
-    
 }
 .nav-links a{
     color: #fff;
     text-decoration: none;
     font-size: 16px;
-    
 }
 .nav-links ul li::after{
     content: '';
@@ -74,9 +72,10 @@ nav img{
     width: 100%;
 }
 .text-box{
+    margin-top: 0rem;
     width: 90%;
     color: #fff;
-    position:absolute;
+    position: absolute;
     top: 30%;
     left: 50%;
     transform: translate(-50%,50%);
@@ -85,13 +84,11 @@ nav img{
 .text-box h1{
     font-size: 62px;
     font-weight: bold;
-
 }
 .text-box p{
     margin: 10px 0 40px;
     font-size: 14px;
     color: #fff;
-    
 }
 .hero-btn{
     display: inline-block;
