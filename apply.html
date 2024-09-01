@@ -24,26 +24,26 @@
         </nav>
         <div class="heading">Allotment Change Form</div>
         <div class="formdata">
-            <form action="/action.php">
+            <form action="action.php" method="POST">
                 <label for="100">
                     <p>Name</p>
-                    <input type="text" placeholder="Enter Name">
+                    <input type="text" name="name" placeholder="Enter Name" required>
                 </label>
                 <label for="101">
                     <p>Roll no</p>
-                    <input type="text" placeholder="Enter Roll no">
+                    <input type="text" name="roll_no" placeholder="Enter Roll no" required>
                 </label>
                 <label for="102">
                     <p>Contact no</p>
-                    <input type="number" placeholder="Enter Contact no">
+                    <input type="number" name="contact_no" placeholder="Enter Contact no" required>
                 </label>  
                 <label for="103">
                     <p>Email id</p>
-                    <input type="email" placeholder="Enter Email id">
+                    <input type="email" name="email_id" placeholder="Enter Email id" required>
                 </label>
                 <label for="104">
                     <p>Select Previous Hostel</p>
-                    <select name="Hostel">
+                    <select name="Hostel" required>
                         <option value="GDB">GD Birla</option>
                         <option value="MV">M Viswashraya</option>
                         <option value="DBA">Dhirubhai Ambani</option>
@@ -56,7 +56,7 @@
                 </label>
                 <label for="105">
                     <p>Hostel Preferences in order</p>
-                    <select name="Preference1" class="preferences">
+                    <select name="Preference1" class="preferences" required>
                         <option value="GDB">GD Birla</option>
                         <option value="MV">M Viswashraya</option>
                         <option value="DBA">Dhirubhai Ambani</option>
@@ -66,7 +66,7 @@
                         <option value="KMS">Kiran Majumdar Shaw</option>
                         <option value="CVR">CV Raman</option>
                     </select>
-                    <select name="Preference2" class="preferences">
+                    <select name="Preference2" class="preferences" required>
                         <option value="GDB">GD Birla</option>
                         <option value="MV">M Viswashraya</option>
                         <option value="DBA">Dhirubhai Ambani</option>
@@ -76,7 +76,7 @@
                         <option value="KMS">Kiran Majumdar Shaw</option>
                         <option value="CVR">CV Raman</option>
                     </select>
-                    <select name="Preference3" class="preferences">
+                    <select name="Preference3" class="preferences" required>
                         <option value="GDB">GD Birla</option>
                         <option value="MV">M Viswashraya</option>
                         <option value="DBA">Dhirubhai Ambani</option>
@@ -89,7 +89,7 @@
                 </label>
                 <input type="submit" value="submit" id="final">
                 <br>
-            </form> 
+            </form>
         </div>
         <div id="extra"></div>
     </section>
