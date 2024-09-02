@@ -17,7 +17,8 @@
 }
 .navbar{
     height: 5rem;
-    background-color: orange;
+    background: radial-gradient(circle, rgb(211, 115, 43), rgba(145, 79, 30, 0));
+    opacity: 0.8;
     color: white;
     text-align: center;
     justify-content: center;
@@ -25,6 +26,11 @@
     padding: 0.7rem;
     margin: 0.2rem;
     border-radius: 20px;
+    display: flex;
+}
+body{
+    background-image: linear-gradient(rgba(4,9,30,0.6),rgba(4,9,30,0.6)),url(Images/boysgirls.jpg);
+    background-size: cover;
 }
 .hostel-section{
     height: 550px;
@@ -42,8 +48,8 @@
     border-radius: 30px;
     height: 14rem;
     width: 74rem;
-    color: yellow;
-    border: 2px solid yellow;
+    color: white;
+    border: 2px solid #ff9100;
     background-color: transparent;
     padding: 5px;
 }
@@ -70,4 +76,18 @@
 }
 .box h3,p{
     text-align: center;
+}
+button{
+    padding: 1rem 2rem 1rem 2rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    background-color: #ff9100;
+    color: white;
+    border-radius: 15px;
+    font-size: 1rem;
+}
+button:hover{
+    background-color: rgba(255, 255, 255, 0.8) ;
+    color: #ff9100;
+    border: 2px solid #ff9100;
 }
