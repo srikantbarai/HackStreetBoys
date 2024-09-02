@@ -8,69 +8,100 @@
     <link rel="stylesheet" href="apply.css">
 </head>
 <body>
-    <section class="header">
+    <section class="data">
         <div class="heading">Allotment Change Form</div>
         <div class="formdata">
             <form action="action.php" method="POST">
-                <label for="100">
-                    <p>Name</p>
-                    <input type="text" name="name" placeholder="Enter Name" required>
-                </label>
-                <label for="101">
-                    <p>Roll no</p>
-                    <input type="text" name="roll_no" placeholder="Enter Roll no" required>
-                </label>
-                <label for="102">
-                    <p>Contact no</p>
-                    <input type="number" name="contact_no" placeholder="Enter Contact no" required>
-                </label>  
-                <label for="103">
-                    <p>Email id</p>
-                    <input type="email" name="email" placeholder="Enter Email id" required>
-                </label>
-                <label for="104">
-                    <p>Select Previous Hostel</p>
-                    <select name="Hostel" required>
-                        <option value="GDB">GD Birla</option>
-                        <option value="MV">M Viswashraya</option>
-                        <option value="DBA">Dhirubhai Ambani</option>
-                        <option value="MSS">MS Swaminathan</option>
-                        <option value="HB">Homie Baba</option>
-                        <option value="SD">Satish Dhawan</option>
-                    </select>
-                </label>
-                <label for="105">
-                    <p>Hostel Preferences order</p>
-                    <select name="Preference1" class="preferences" required>
-                        <option value="GDB">GD Birla</option>
-                        <option value="MV">M Viswashraya</option>
-                        <option value="DBA">Dhirubhai Ambani</option>
-                        <option value="MSS">MS Swaminathan</option>
-                        <option value="HB">Homie Baba</option>
-                        <option value="SD">Satish Dhawan</option>
-                    </select>
-                    <select name="Preference2" class="preferences" required>
-                        <option value="GDB">GD Birla</option>
-                        <option value="MV">M Viswashraya</option>
-                        <option value="DBA">Dhirubhai Ambani</option>
-                        <option value="MSS">MS Swaminathan</option>
-                        <option value="HB">Homie Baba</option>
-                        <option value="SD">Satish Dhawan</option>
-                    </select>
-                    <select name="Preference3" class="preferences" required>
-                        <option value="GDB">GD Birla</option>
-                        <option value="MV">M Viswashraya</option>
-                        <option value="DBA">Dhirubhai Ambani</option>
-                        <option value="MSS">MS Swaminathan</option>
-                        <option value="HB">Homie Baba</option>
-                        <option value="SD">Satish Dhawan</option>
-                    </select>
-                </label>
-                <input type="submit" value="Submit" id="final" href="index.html">
-                <br>
+                <div class="fields">
+                    <label for="100" id="100">
+                        <p>Name :</p>
+                        <input type="text" name="name" placeholder="Enter Name" required>
+                    </label>
+                </div>
+                <div class="fields">
+                    <label for="101" id="101">
+                        <p>Roll no :</p>
+                        <input type="text" name="roll_no" placeholder="Enter Roll no" required>
+                    </label>
+                </div>
+                <div class="fields">
+                    <label for="102" id="102">  
+                        <p class="Gender">Gender :</p>
+                        <input type="radio" value="Male" name="Gender" class="radio">Male
+                        <input type="radio" value="Female" name="Gender" class="radio">Female
+                    </label>
+                </div>
+                <div class="fields">
+                    <label for="103" id="103">
+                        <p>Contact no :</p>
+                        <input type="number" name="contact_no" placeholder="Enter Contact no" required>
+                    </label>
+                </div>
+                <div class="fields">
+                    <label for="104" id="104">
+                        <p>Email id :</p>
+                        <input type="email" name="email" placeholder="Enter Email id" required>
+                    </label>
+                </div>
+                <div class="fields">
+                    <label for="105" id="105">
+                        <p>Select Current Hostel :</p>
+                        <select name="Hostel" required>
+                            <option value="GDB">GD Birla</option>
+                            <option value="MV">M Viswashraya</option>
+                            <option value="DBA">Dhirubhai Ambani</option>
+                            <option value="MSS">MS Swaminathan</option>
+                            <option value="HB">Homi Bhaba</option>
+                            <option value="SD">Satish Dhawan</option>
+                            <option value="KMS">Kiran Majumdar Shaw</option>
+                            <option value="CVR">CV Raman</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="fields">
+                    <label for="106" id="106">
+                        <p>Hostel Preference order :</p>
+                        <select name="Preference1" class="preferences" required>
+                            <option value="NIL">---</option>
+                            <option value="GDB">GD Birla</option>
+                            <option value="MV">M Viswashraya</option>
+                            <option value="DBA">Dhirubhai Ambani</option>
+                            <option value="MSS">MS Swaminathan</option>
+                            <option value="HB">Homi Bhaba</option>
+                            <option value="SD">Satish Dhawan</option>
+                            <option value="KMS">Kiran Majumdar Shaw</option>
+                            <option value="CVR">CV Raman</option>
+                        </select>
+                        <select name="Preference2" class="preferences" required>
+                            <option value="NIL">---</option>
+                            <option value="GDB">GD Birla</option>
+                            <option value="MV">M Viswashraya</option>
+                            <option value="DBA">Dhirubhai Ambani</option>
+                            <option value="MSS">MS Swaminathan</option>
+                            <option value="HB">Homi Bhaba</option>
+                            <option value="SD">Satish Dhawan</option>
+                            <option value="KMS">Kiran Majumdar Shaw</option>
+                            <option value="CVR">CV Raman</option>
+                        </select>
+                        <select name="Preference3" class="preferences" required>
+                            <option value="NIL">---</option>
+                            <option value="GDB">GD Birla</option>
+                            <option value="MV">M Viswashraya</option>
+                            <option value="DBA">Dhirubhai Ambani</option>
+                            <option value="MSS">MS Swaminathan</option>
+                            <option value="HB">Homi Bhaba</option>
+                            <option value="SD">Satish Dhawan</option>
+                            <option value="KMS">Kiran Majumdar Shaw</option>
+                            <option value="CVR">CV Raman</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="submit">
+                    <button type="submit" id="final">Submit</button>
+                </div>
             </form>
         </div>
-        <div id="extra"></div>
     </section>
+    <script src="apply.js"></script>
 </body>   
 </html>
