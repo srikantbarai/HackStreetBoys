@@ -27,8 +27,8 @@
                 <div class="fields">
                     <label for="102" id="102">  
                         <p class="Gender">Gender :</p>
-                        <input type="radio" value="Male" name="Gender" class="radio">Male
-                        <input type="radio" value="Female" name="Gender" class="radio">Female
+                        <input type="radio" value="Male" name="Gender" class="radio" id="male" required>Male
+                        <input type="radio" value="Female" name="Gender" class="radio" id="female" required>Female
                     </label>
                 </div>
                 <div class="fields">
@@ -47,6 +47,7 @@
                     <label for="105" id="105">
                         <p>Select Current Hostel :</p>
                         <select name="Hostel" required>
+                            <option value="NIL">---</option>
                             <option value="GDB">GD Birla</option>
                             <option value="MV">M Viswashraya</option>
                             <option value="DBA">Dhirubhai Ambani</option>
