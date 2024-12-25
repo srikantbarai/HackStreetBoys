@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport"content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta name="keywords" content="Student Activity Centre">
     <meta name="author" content="HackStreet Boys">
     <title>Hostel Allotment Portal</title>
@@ -11,7 +11,7 @@
     <section class="data">
         <div class="heading">Allotment Change Form</div>
         <div class="formdata">
-            <form action="action.php" method="POST">
+            <form id="allotmentForm">
                 <div class="fields">
                     <label for="100" id="100">
                         <p>Name :</p>
@@ -25,7 +25,7 @@
                     </label>
                 </div>
                 <div class="fields">
-                    <label for="102" id="102">  
+                    <label for="102" id="102">
                         <p class="Gender">Gender :</p>
                         <input type="radio" value="Male" name="Gender" class="radio" id="male" required>Male
                         <input type="radio" value="Female" name="Gender" class="radio" id="female" required>Female
@@ -46,16 +46,8 @@
                 <div class="fields">
                     <label for="105" id="105">
                         <p>Select Current Hostel :</p>
-                        <select name="Hostel" required>
+                        <select name="Hostel" id="hostelDropdown" required>
                             <option value="NIL">---</option>
-                            <option value="GDB">GD Birla</option>
-                            <option value="MV">M Viswashraya</option>
-                            <option value="DBA">Dhirubhai Ambani</option>
-                            <option value="MSS">MS Swaminathan</option>
-                            <option value="HB">Homi Bhaba</option>
-                            <option value="SD">Satish Dhawan</option>
-                            <option value="KMS">Kiran Majumdar Shaw</option>
-                            <option value="CVR">CV Raman</option>
                         </select>
                     </label>
                 </div>
@@ -64,36 +56,12 @@
                         <p>Hostel Preference order :</p>
                         <select name="Preference1" class="preferences" required>
                             <option value="NIL">---</option>
-                            <option value="GDB">GD Birla</option>
-                            <option value="MV">M Viswashraya</option>
-                            <option value="DBA">Dhirubhai Ambani</option>
-                            <option value="MSS">MS Swaminathan</option>
-                            <option value="HB">Homi Bhaba</option>
-                            <option value="SD">Satish Dhawan</option>
-                            <option value="KMS">Kiran Majumdar Shaw</option>
-                            <option value="CVR">CV Raman</option>
                         </select>
                         <select name="Preference2" class="preferences" required>
                             <option value="NIL">---</option>
-                            <option value="GDB">GD Birla</option>
-                            <option value="MV">M Viswashraya</option>
-                            <option value="DBA">Dhirubhai Ambani</option>
-                            <option value="MSS">MS Swaminathan</option>
-                            <option value="HB">Homi Bhaba</option>
-                            <option value="SD">Satish Dhawan</option>
-                            <option value="KMS">Kiran Majumdar Shaw</option>
-                            <option value="CVR">CV Raman</option>
                         </select>
                         <select name="Preference3" class="preferences" required>
                             <option value="NIL">---</option>
-                            <option value="GDB">GD Birla</option>
-                            <option value="MV">M Viswashraya</option>
-                            <option value="DBA">Dhirubhai Ambani</option>
-                            <option value="MSS">MS Swaminathan</option>
-                            <option value="HB">Homi Bhaba</option>
-                            <option value="SD">Satish Dhawan</option>
-                            <option value="KMS">Kiran Majumdar Shaw</option>
-                            <option value="CVR">CV Raman</option>
                         </select>
                     </label>
                 </div>
@@ -101,8 +69,84 @@
                     <button type="submit" id="final">Submit</button>
                 </div>
             </form>
+            <script>
+                const hostelOptions = {
+                    Male: [
+                        { value: "GDB", text: "GD Birla" },
+                        { value: "MV", text: "M Viswashraya" },
+                        { value: "DBA", text: "Dhirubhai Ambani" },
+                        { value: "MSS", text: "MS Swaminathan" },
+                        { value: "HB", text: "Homi Bhaba" },
+                        { value: "SD", text: "Satish Dhawan" }
+                    ],
+                    Female: [
+                        { value: "KMS", text: "Kiran Majumdar Shaw" },
+                        { value: "CVR", text: "CV Raman" }
+                    ]
+                };
+
+                const genderRadios = document.querySelectorAll('input[name="Gender"]');
+                const hostelDropdown = document.getElementById('hostelDropdown');
+                const preferences = document.querySelectorAll('.preferences');
+
+                function updateHostelOptions() {
+                    const selectedGender = document.querySelector('input[name="Gender"]:checked').value;
+                    const options = hostelOptions[selectedGender];
+                    
+                    // Update the hostel dropdown
+                    hostelDropdown.innerHTML = '<option value="NIL">---</option>';
+                    options.forEach(option => {
+                        const opt = document.createElement('option');
+                        opt.value = option.value;
+                        opt.textContent = option.text;
+                        hostelDropdown.appendChild(opt);
+                    });
+
+                    // Update preference dropdowns
+                    preferences.forEach(select => {
+                        select.innerHTML = '<option value="NIL">---</option>';
+                        options.forEach(option => {
+                            const opt = document.createElement('option');
+                            opt.value = option.value;
+                            opt.textContent = option.text;
+                            select.appendChild(opt);
+                        });
+                    });
+                }
+
+                genderRadios.forEach(radio => radio.addEventListener('change', updateHostelOptions));
+
+                // Form submission handler
+                document.getElementById('allotmentForm').addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    const formData = {
+                        name: e.target.name.value,
+                        roll_no: e.target.roll_no.value,
+                        gender: e.target.Gender.value,
+                        contact_no: e.target.contact_no.value,
+                        email: e.target.email.value,
+                        hostel: e.target.Hostel.value,
+                        preference1: e.target.Preference1.value,
+                        preference2: e.target.Preference2.value,
+                        preference3: e.target.Preference3.value,
+                    };
+
+                    try {
+                        const response = await fetch('http://localhost:3000/submit', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(formData),
+                        });
+                        const result = await response.json();
+                        alert(result.message);
+                    } catch (error) {
+                        alert('Error submitting form');
+                        console.error(error);
+                    }
+                });
+            </script>
         </div>
     </section>
     <script src="apply.js"></script>
-</body>   
+</body>
 </html>
