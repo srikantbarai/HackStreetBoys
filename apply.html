@@ -169,13 +169,25 @@
                 });
             
                 document.getElementById("hostelDropdown").addEventListener("change", () => {
-                    const hostelDropdown = document.getElementById("hostelDropdown");
-                    if (hostelDropdown.value !== "NIL") {
-                        document.querySelectorAll(".preferences").forEach(select => {
-                            select.disabled = false;
-                        });
-                    }
-                });
+    const currentHostel = document.getElementById("hostelDropdown").value;
+
+    // Disable the same current hostel in preference dropdowns
+    document.querySelectorAll(".preferences").forEach(select => {
+        select.querySelectorAll("option").forEach(option => {
+            if (option.value === currentHostel) {
+                option.disabled = true;
+            } else {
+                option.disabled = false;
+            }
+        });
+    });
+
+    if (currentHostel !== "NIL") {
+        document.querySelectorAll(".preferences").forEach(select => {
+            select.disabled = false;
+        });
+    }
+});
             
                 // Handle form submission
                 document.getElementById("allotmentForm").addEventListener("submit", async (e) => {
@@ -227,4 +239,9 @@
 </body>
 </html>
 
-i just want to check my commit;
+hii gfadsvhcvshkdav
+jhasdvcgvsadug
+chasvuc
+
+
+
