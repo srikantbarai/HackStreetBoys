@@ -15,38 +15,38 @@
                 <div class="fields">
                     <label for="100" id="100">
                         <p>Name :</p>
-                        <input type="text" name="name" placeholder="Enter Name" required>
+                        <input type="text" name="name" id="name" placeholder="Enter Name" required>
                     </label>
                 </div>
                 <div class="fields">
                     <label for="101" id="101">
                         <p>Roll no :</p>
-                        <input type="text" name="roll_no" placeholder="Enter Roll no" required>
+                        <input type="text" name="roll_no" id="roll_no" placeholder="Enter Roll no" required disabled>
                     </label>
                 </div>
                 <div class="fields">
                     <label for="102" id="102">
                         <p class="Gender">Gender :</p>
-                        <input type="radio" value="Male" name="Gender" class="radio" id="male" required>Male
-                        <input type="radio" value="Female" name="Gender" class="radio" id="female" required>Female
+                        <input type="radio" value="Male" name="Gender" class="radio" id="male" required disabled>Male
+                        <input type="radio" value="Female" name="Gender" class="radio" id="female" required disabled>Female
                     </label>
                 </div>
                 <div class="fields">
                     <label for="103" id="103">
                         <p>Contact no :</p>
-                        <input type="number" name="contact_no" placeholder="Enter Contact no" required>
+                        <input type="number" name="contact_no" id="contact_no" placeholder="Enter Contact no" required disabled>
                     </label>
                 </div>
                 <div class="fields">
                     <label for="104" id="104">
                         <p>Email id :</p>
-                        <input type="email" name="email" placeholder="Enter Email id" required>
+                        <input type="email" name="email" id="email" placeholder="Enter Email id" required disabled>
                     </label>
                 </div>
                 <div class="fields">
                     <label for="105" id="105">
                         <p>Select Current Hostel :</p>
-                        <select name="Hostel" id="hostelDropdown" required>
+                        <select name="Hostel" id="hostelDropdown" required disabled>
                             <option value="NIL">---</option>
                         </select>
                     </label>
@@ -54,97 +54,153 @@
                 <div class="fields">
                     <label for="106" id="106">
                         <p>Hostel Preference order :</p>
-                        <select name="Preference1" class="preferences" required>
+                        <select name="Preference1" class="preferences" required disabled>
                             <option value="NIL">---</option>
                         </select>
-                        <select name="Preference2" class="preferences" required>
+                        <select name="Preference2" class="preferences" required disabled>
                             <option value="NIL">---</option>
                         </select>
-                        <select name="Preference3" class="preferences" required>
+                        <select name="Preference3" class="preferences" required disabled>
                             <option value="NIL">---</option>
                         </select>
                     </label>
                 </div>
                 <div class="submit">
-                    <button type="submit" id="final">Submit</button>
+                    <button type="submit" id="final" disabled>Submit</button>
                 </div>
             </form>
-            <script>
-                const hostelOptions = {
-                    Male: [
-                        { value: "GDB", text: "GD Birla" },
-                        { value: "MV", text: "M Viswashraya" },
-                        { value: "DBA", text: "Dhirubhai Ambani" },
-                        { value: "MSS", text: "MS Swaminathan" },
-                        { value: "HB", text: "Homi Bhaba" },
-                        { value: "SD", text: "Satish Dhawan" }
-                    ],
-                    Female: [
-                        { value: "KMS", text: "Kiran Majumdar Shaw" },
-                        { value: "CVR", text: "CV Raman" }
-                    ]
-                };
 
-                const genderRadios = document.querySelectorAll('input[name="Gender"]');
-                const hostelDropdown = document.getElementById('hostelDropdown');
-                const preferences = document.querySelectorAll('.preferences');
-
-                function updateHostelOptions() {
-                    const selectedGender = document.querySelector('input[name="Gender"]:checked').value;
-                    const options = hostelOptions[selectedGender];
-                    
-                    // Update the hostel dropdown
-                    hostelDropdown.innerHTML = '<option value="NIL">---</option>';
-                    options.forEach(option => {
-                        const opt = document.createElement('option');
-                        opt.value = option.value;
-                        opt.textContent = option.text;
-                        hostelDropdown.appendChild(opt);
+            <!-- Replace this entire <script> block -->
+                <script>
+                    const fieldsOrder = [
+                        "name", // Name field
+                        "roll_no", // Roll Number field
+                        "gender", // Gender selection (tracked dynamically)
+                        "contact_no", // Contact Number field
+                        "email", // Email field
+                        "hostelDropdown", // Current Allotment Dropdown
+                        ...Array.from(document.querySelectorAll('.preferences')).map(select => select.name), // Preference dropdowns
+                        "final" // Submit button
+                    ];
+                
+                    // Hostel options based on gender
+                    const hostelOptions = {
+                        Male: [
+                            { value: "GDB", text: "GD Birla" },
+                            { value: "MV", text: "M Viswashraya" },
+                            { value: "DBA", text: "Dhirubhai Ambani" },
+                            { value: "MSS", text: "MS Swaminathan" },
+                            { value: "HB", text: "Homi Bhaba" },
+                            { value: "SD", text: "Satish Dhawan" }
+                        ],
+                        Female: [
+                            { value: "KMS", text: "Kiran Majumdar Shaw" },
+                            { value: "CVR", text: "CV Raman" }
+                        ]
+                    };
+                
+                    // Function to enable the next field
+                    function enableNextField(currentField, nextField) {
+                        if (currentField.checkValidity()) {
+                            nextField.disabled = false;
+                        } else {
+                            nextField.disabled = true;
+                        }
+                    }
+                
+                    // Attach input listeners for sequential enablement
+                    document.getElementById("name").addEventListener("input", () => {
+                        enableNextField(document.getElementById("name"), document.getElementById("roll_no"));
                     });
-
-                    // Update preference dropdowns
-                    preferences.forEach(select => {
-                        select.innerHTML = '<option value="NIL">---</option>';
+                
+                    document.getElementById("roll_no").addEventListener("input", () => {
+                        enableNextField(document.getElementById("roll_no"), document.getElementById("contact_no"));
+                        document.querySelectorAll('input[name="Gender"]').forEach(radio => {
+                            radio.disabled = false;
+                        });
+                    });
+                
+                    // Update hostel dropdowns after gender selection
+                    function updateHostelOptions(selectedGender) {
+                        const options = hostelOptions[selectedGender];
+                
+                        // Update current allotment dropdown
+                        const hostelDropdown = document.getElementById("hostelDropdown");
+                        hostelDropdown.innerHTML = '<option value="NIL">---</option>';
                         options.forEach(option => {
-                            const opt = document.createElement('option');
+                            const opt = document.createElement("option");
                             opt.value = option.value;
                             opt.textContent = option.text;
-                            select.appendChild(opt);
+                            hostelDropdown.appendChild(opt);
+                        });
+                
+                        // Update preference dropdowns
+                        const preferences = document.querySelectorAll(".preferences");
+                        preferences.forEach(select => {
+                            select.innerHTML = '<option value="NIL">---</option>';
+                            options.forEach(option => {
+                                const opt = document.createElement("option");
+                                opt.value = option.value;
+                                opt.textContent = option.text;
+                                select.appendChild(opt);
+                            });
+                        });
+                    }
+                
+                    document.querySelectorAll('input[name="Gender"]').forEach(radio => {
+                        radio.addEventListener("change", () => {
+                            const selectedGender = document.querySelector('input[name="Gender"]:checked').value;
+                            updateHostelOptions(selectedGender);
+                            enableNextField(radio, document.getElementById("email"));
                         });
                     });
-                }
-
-                genderRadios.forEach(radio => radio.addEventListener('change', updateHostelOptions));
-
-                // Form submission handler
-                document.getElementById('allotmentForm').addEventListener('submit', async (e) => {
-                    e.preventDefault();
-                    const formData = {
-                        name: e.target.name.value,
-                        roll_no: e.target.roll_no.value,
-                        gender: e.target.Gender.value,
-                        contact_no: e.target.contact_no.value,
-                        email: e.target.email.value,
-                        hostel: e.target.Hostel.value,
-                        preference1: e.target.Preference1.value,
-                        preference2: e.target.Preference2.value,
-                        preference3: e.target.Preference3.value,
-                    };
-
-                    try {
-                        const response = await fetch('http://localhost:3000/submit', {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify(formData),
-                        });
-                        const result = await response.json();
-                        alert(result.message);
-                    } catch (error) {
-                        alert('Error submitting form');
-                        console.error(error);
-                    }
-                });
-            </script>
+                
+                    document.getElementById("email").addEventListener("input", () => {
+                        enableNextField(document.getElementById("email"), document.getElementById("hostelDropdown"));
+                    });
+                
+                    document.getElementById("hostelDropdown").addEventListener("change", () => {
+                        const hostelDropdown = document.getElementById("hostelDropdown");
+                        if (hostelDropdown.value !== "NIL") {
+                            document.querySelectorAll(".preferences").forEach(select => {
+                                select.disabled = false;
+                            });
+                        }
+                    });
+                
+                    // Handle form submission
+                    document.getElementById("allotmentForm").addEventListener("submit", async (e) => {
+                        e.preventDefault();
+                
+                        const formData = {
+                            name: document.getElementById("name").value,
+                            roll_no: document.getElementById("roll_no").value,
+                            gender: document.querySelector('input[name="Gender"]:checked').value,
+                            contact_no: document.getElementById("contact_no").value,
+                            email: document.getElementById("email").value,
+                            hostel: document.getElementById("hostelDropdown").value,
+                            preference1: document.querySelector('select[name="Preference1"]').value,
+                            preference2: document.querySelector('select[name="Preference2"]').value,
+                            preference3: document.querySelector('select[name="Preference3"]').value,
+                        };
+                
+                        try {
+                            const response = await fetch("http://localhost:3000/submit", {
+                                method: "POST",
+                                headers: { "Content-Type": "application/json" },
+                                body: JSON.stringify(formData),
+                            });
+                            const result = await response.json();
+                            alert(result.message);
+                        } catch (error) {
+                            alert("Error submitting form");
+                            console.error(error);
+                        }
+                    });
+                </script>
+                
+                
+            <!-- End of replacement -->
         </div>
     </section>
     <script src="apply.js"></script>
