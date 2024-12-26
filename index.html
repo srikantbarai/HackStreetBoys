@@ -1,33 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport"content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <meta name="keywords" content="Student Activity Centre">
-    <meta name="author" content="HackStreet Boys">
-    <title>Hostel Allotment Portal</title>
-    <link rel="stylesheet" href="index.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .signin-container {
+      background-color: #fff;
+      padding: 20px 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      width: 300px;
+    }
+    .signin-container h2 {
+      margin-bottom: 20px;
+      text-align: center;
+      color: #333;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      color: #555;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    .signin-button {
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .signin-button:hover {
+      background-color: #0056b3;
+    }
+    .forgot-password {
+      text-align: center;
+      margin-top: 15px;
+    }
+    .forgot-password a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    .forgot-password a:hover {
+      text-decoration: underline;
+    }
+    .signup-option {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .signup-option a {
+      color: #007bff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .signup-option a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-    <section class="header">
-        <nav>
-            <a href="index.html"><img src="Images/logo.jpg" id="logo-img"></a>
-            <div class="nav-links" id="navLinks">
-                <span class="icon" onclick="hidemenu()"></span>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="allotment.html">Allotment</a></li>
-                </ul>
-            </div> 
-            <span class="icon" onclick="showmenu()"></span>
-        </nav>
-        <div class="text-box">
-            <h1>Hostel Allotment Portal</h1>
-            <p>The Hostel Management Office is the central hub for student accommodation, residential life, maintenance, support services,<br> and community building at the institute campus.</p>
-            <a href="Boys.html" class="hero-btn">Boys Hostel</a>
-            <a href="Girls.html" class="hero-btn">Girls Hostel</a>
-        </div>
-    </section>
-</body>   
+  <div class="signin-container">
+    <h2>Sign In</h2>
+    <form action="hostel-allotment.html" method="GET">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+      </div>
+      <button type="submit" class="signin-button">Sign In</button>
+    </form>
+    <div class="forgot-password">
+      <a href="/reset-password">Forgot Password?</a>
+    </div>
+    <div class="signup-option">
+      <p>Don't have an account? <a href="/signup">Sign Up</a></p>
+    </div>
+  </div>
+</body>
 </html>
